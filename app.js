@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 
 //Http
 var app = express();
+const path = require('path');
 
 //Routes
 var starship_routes = require('./routes/StarshipRoutes');
@@ -19,6 +20,10 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
+});
+
+app.get('/', function(request,response) {
+  response.sendFile(path.join(__dirname+'/index.html'));
 });
 
 app.use('/api', starship_routes);
