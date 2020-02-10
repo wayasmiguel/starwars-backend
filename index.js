@@ -9,6 +9,7 @@ var port = 3900;
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
+
 mongoose.connect('mongodb+srv://wayasMongo:MongoDBNode@nodebackendcluster-uh5h0.mongodb.net/db_starwars?retryWrites=true&w=majority', { useUnifiedTopology: true, useNewUrlParser: true })
   .then(() => {
     console.log('La conexión a la base de datos se ha realizado correctamente!');
